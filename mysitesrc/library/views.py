@@ -32,7 +32,7 @@ class BookCreateView(CreateView):
     fields = ("title", "author", "isbn", "description", "price")
 
     def get_success_url(self):
-        return reverse_lazy("bookslist", kwargs={"pk": self.object.id})
+        return reverse_lazy("bookdetail", kwargs={"pk": self.object.id})
 
 
 class BookUpdateView(UpdateView):
@@ -45,6 +45,7 @@ class BookUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy("bookdetail", kwargs={"pk": self.object.id})
+
 class BookDeleteView(DeleteView):
     '''
     Book Delete View
