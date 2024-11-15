@@ -1,13 +1,19 @@
 
 {% block content %}
 <h1>Book List</h1>
-<ul>
+<table style="width:50%; border:2px solid black; border-collapse: collapse;">
+    <tr style="border:1px solid black;">
+        <th>Title</th>
+        <th>Author</th>
+    </tr>
     {% for book in books %}
-    <li>
-        <a href="{% url 'bookdetail' book.id %}">{{book.title}}</a>
-    </li>
-    {% empty %}
-    <li>No Books are available</li>
+    <tr style="border:1px solid black;">
+        <td><a href="{% url 'bookdetail' book.id %}">{{book.title}}</a></td>
+        <td>{{book.author}}</td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
 {% endblock %}
+<p>
+    <a href="/books/new/">Create New Book</a>
+</p>
